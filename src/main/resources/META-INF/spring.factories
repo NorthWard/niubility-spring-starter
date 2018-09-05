@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.north.lat.NbAutoConfiguration
+com.north.lat.service.SaveTheWorldService=\
+com.north.lat.service.impl.CommonSaveTheWorldServiceImpl,com.north.lat.service.impl.HeroSaveTheWorldImpl
