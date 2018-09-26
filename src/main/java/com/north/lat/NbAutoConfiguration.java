@@ -38,7 +38,9 @@ public class NbAutoConfiguration implements EnvironmentAware,ApplicationContextA
 
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
+        // 我这里是从spring.factories加载了SaveTheWorldService的所有实现,
         List<SaveTheWorldService> saveTheWorldServices = SpringFactoriesLoader.loadFactories(SaveTheWorldService.class, this.getClass().getClassLoader());
+        // 然后用BeanDefinitionRegistry 注册到BeanDefinitions
         saveTheWorldServices.forEach(saveTheWorldService->{
             GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
             beanDefinition.setBeanClass(saveTheWorldService.getClass());
